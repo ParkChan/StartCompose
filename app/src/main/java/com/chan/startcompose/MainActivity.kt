@@ -31,6 +31,11 @@ class MainActivity : ComponentActivity() {
 
 data class Message(val author: String, val body: String)
 
+/**
+ * 이 코드는 콘텐츠 뷰 내에 텍스트 요소 두 개를 만듭니다.
+ * 그러나 정렬 방법에 관한 정보가 제공되지 않았으므로
+ * 텍스트 요소가 서로 위에 겹치게 표시되어 텍스트를 읽을 수 없습니다.
+ */
 @Composable
 fun MessageCard(msg: Message) {
     Text(text = msg.author)
