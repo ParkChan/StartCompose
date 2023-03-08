@@ -22,22 +22,27 @@ class MainActivity : ComponentActivity() {
                     modifier = Modifier.fillMaxSize(),
                     color = MaterialTheme.colors.background
                 ) {
-                    Greeting("Android")
+                    MessageCard(Message("Android", "Jetpack Compose"))
                 }
             }
         }
     }
 }
 
+data class Message(val author: String, val body: String)
+
 @Composable
-fun Greeting(name: String) {
-    Text(text = "Hello $name!")
+fun MessageCard(msg: Message) {
+    Text(text = msg.author)
+    Text(text = msg.body)
 }
 
 @Preview(showBackground = true)
 @Composable
 fun DefaultPreview() {
     StartComposeTheme {
-        Greeting("Android")
+        MessageCard(
+            msg = Message("Android", "Jetpack Compose")
+        )
     }
 }
