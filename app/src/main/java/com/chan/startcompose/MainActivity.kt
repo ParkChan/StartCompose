@@ -54,10 +54,20 @@ fun MessageCard(msg: Message) {
         Column {
             Text(
                 text = msg.author,
-                color = MaterialTheme.colors.secondaryVariant
+                color = MaterialTheme.colors.secondaryVariant,
+                style = MaterialTheme.typography.subtitle2
             )
+
             Spacer(modifier = Modifier.height(4.dp))
-            Text(text = msg.body)
+
+            Surface(shape = MaterialTheme.shapes.medium, elevation = 1.dp) {
+                Text(
+                    text = msg.body,
+                    modifier = Modifier.padding(all = 4.dp),
+                    style = MaterialTheme.typography.body2
+                )
+            }
+
         }
 
     }
