@@ -10,7 +10,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.StartCompose">
         <activity
-            android:name=".tutorial.MainActivity"
+            android:name=".exam4.MainActivity"
             android:exported="true"
             android:label="@string/app_name"
             android:theme="@style/Theme.StartCompose">
