@@ -1,11 +1,10 @@
-package com.chan.startcompose
+package com.chan.startcompose.tutorial
 
 import android.content.res.Configuration
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.compose.animation.animateColorAsState
-import androidx.compose.animation.animateContentSize
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.border
 import androidx.compose.foundation.clickable
@@ -22,7 +21,8 @@ import androidx.compose.ui.draw.clip
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import com.chan.startcompose.ui.theme.ComposeTutorialTheme
+import com.chan.startcompose.R
+import com.chan.startcompose.tutorial.theme.ComposeTutorialTheme
 
 
 class MainActivity : ComponentActivity() {

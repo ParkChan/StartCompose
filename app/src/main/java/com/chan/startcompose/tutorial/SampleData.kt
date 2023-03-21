@@ -1,4 +1,4 @@
-package com.chan.startcompose
+package com.chan.startcompose.tutorial
 
 object SampleData {
     // Sample conversation data
@@ -67,7 +67,8 @@ object SampleData {
         Message(
             "Colleague",
             "Have you tried writing build.gradle with KTS?"
-        ),Message(
+        ),
+        Message(
             "Colleague",
             "Test...Test...Test..."
         ),

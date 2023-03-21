@@ -1,4 +1,4 @@
-package com.chan.startcompose.ui.theme
+package com.chan.startcompose.tutorial.theme
 
 import androidx.compose.material.Typography
 import androidx.compose.ui.text.TextStyle
