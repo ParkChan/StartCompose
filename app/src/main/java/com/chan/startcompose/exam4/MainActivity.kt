@@ -24,7 +24,22 @@ class MainActivity : ComponentActivity() {
 }
 
 @Composable
-private fun MyApp(
+private fun MyApp(modifier: Modifier) {
+
+    val shouldShowOnboarding by remember { mutableStateOf(true) }
+
+    Surface(modifier) {
+        if (shouldShowOnboarding) {
+            OnboardingScreen(/* TODO */)
+        } else {
+            Greetings()
+        }
+    }
+
+}
+
+@Composable
+private fun Greetings(
     modifier: Modifier = Modifier,
     names: List<String> = listOf("World", "Compose")
 ) {
@@ -85,6 +100,15 @@ fun OnboardingScreen(modifier: Modifier = Modifier) {
     }
 }
 
+@Preview(showBackground = true, widthDp = 320)
+@Composable
+private fun GreetingsPreview() {
+    ComposeTutorialTheme {
+        Greetings()
+    }
+}
+
+
 @Preview(showBackground = true, widthDp = 320, heightDp = 320)
 @Composable
 fun OnboardingPreview() {
@@ -94,10 +118,10 @@ fun OnboardingPreview() {
 }
 
 
-@Preview(showBackground = true, name = "Text preview")
+@Preview
 @Composable
-fun DefaultPreview() {
+fun MyAppPreview() {
     ComposeTutorialTheme {
-        MyApp()
+        MyApp(Modifier.fillMaxSize())
     }
 }
