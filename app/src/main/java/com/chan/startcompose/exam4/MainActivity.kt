@@ -26,16 +26,43 @@ class MainActivity : ComponentActivity() {
 @Composable
 private fun MyApp(modifier: Modifier) {
 
-    val shouldShowOnboarding by remember { mutableStateOf(true) }
+    var shouldShowOnboarding by remember { mutableStateOf(true) }
 
     Surface(modifier) {
         if (shouldShowOnboarding) {
-            OnboardingScreen(/* TODO */)
+            OnboardingScreen(onContinueClicked = { shouldShowOnboarding = false })
         } else {
             Greetings()
         }
     }
+}
 
+@Composable
+fun OnboardingScreen(
+    onContinueClicked: () -> Unit,
+    modifier: Modifier = Modifier
+) {
+    Column(
+        modifier = modifier.fillMaxSize(),
+        verticalArrangement = Arrangement.Center,
+        horizontalAlignment = Alignment.CenterHorizontally
+    ) {
+        Text("Welcome to this Basics Codelab!")
+        Button(
+            modifier = Modifier.padding(vertical = 24.dp),
+            onClick = onContinueClicked
+        ) {
+            Text("Continue")
+        }
+    }
+}
+
+@Preview(showBackground = true, widthDp = 320, heightDp = 320)
+@Composable
+fun OnboardingPreview() {
+    ComposeTutorialTheme {
+        OnboardingScreen(onContinueClicked = {}) // Do nothing on Click
+    }
 }
 
 @Composable
@@ -78,45 +105,13 @@ private fun Greeting(name: String) {
     }
 }
 
-@Composable
-fun OnboardingScreen(modifier: Modifier = Modifier) {
-    // TODO: This state should be hoisted
-    var shouldShowOnboarding by remember { mutableStateOf(true) }
-
-    Column(
-        modifier = modifier.fillMaxSize(),
-        verticalArrangement = Arrangement.Center,
-        horizontalAlignment = Alignment.CenterHorizontally
-    ) {
-        Text("Welcome to this Basics Codelab!")
-        Button(
-            modifier = Modifier.padding(vertical = 24.dp),
-            onClick = {
-                shouldShowOnboarding = false
-            }
-        ) {
-            Text("Continue")
-        }
-    }
-}
-
 @Preview(showBackground = true, widthDp = 320)
 @Composable
-private fun GreetingsPreview() {
+private fun DefaultsPreview() {
     ComposeTutorialTheme {
         Greetings()
     }
 }
-
-
-@Preview(showBackground = true, widthDp = 320, heightDp = 320)
-@Composable
-fun OnboardingPreview() {
-    ComposeTutorialTheme {
-        OnboardingScreen()
-    }
-}
-
 
 @Preview
 @Composable
