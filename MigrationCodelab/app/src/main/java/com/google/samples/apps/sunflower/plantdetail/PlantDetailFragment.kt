@@ -22,6 +22,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.compose.material.MaterialTheme
+import androidx.compose.ui.platform.ViewCompositionStrategy
 import androidx.coordinatorlayout.widget.CoordinatorLayout
 import androidx.core.app.ShareCompat
 import androidx.core.widget.NestedScrollView
@@ -57,11 +58,18 @@ class PlantDetailFragment : Fragment() {
         val binding = DataBindingUtil.inflate<FragmentPlantDetailBinding>(
             inflater, R.layout.fragment_plant_detail, container, false
         ).apply {
-            composeView.setContent {
-                MaterialTheme {
-                    PlantDetailDescription(plantDetailViewModel)
+
+            composeView.apply {
+                // 전환이 발생할 때 기본 ComposeView가 분리된 상태가 됩니다. 그러나 이러한 전환 중에도 Compose UI 요소는 계속 표시됩니다.
+                // 프래그먼트의 LifecycleOwner가 소멸되면 컴포지션을 삭제함
+                setViewCompositionStrategy(ViewCompositionStrategy.DisposeOnViewTreeLifecycleDestroyed)
+                setContent {
+                    MaterialTheme {
+                        PlantDetailDescription(plantDetailViewModel)
+                    }
                 }
             }
+
             viewModel = plantDetailViewModel
             lifecycleOwner = viewLifecycleOwner
             callback = object : Callback {
