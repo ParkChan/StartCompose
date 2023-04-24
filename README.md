@@ -8,4 +8,4 @@
     - 5.Jetpack Compose로 이전 [Codelab](https://developer.android.com/codelabs/jetpack-compose-migration?hl=ko&continue=https%3A%2F%2Fdeveloper.android.com%2Fcourses%2Fpathways%2Fcompose%3Fhl%3Dko%23codelab-https%3A%2F%2Fdeveloper.android.com%2Fcodelabs%2Fjetpack-compose-migration#0)
       - 기존 기능을 Compose로 교체
     - 6.Compose의 기본 레이아웃
-      - BasicLayoutsCodelab 프로젝트 
+      - BasicLayoutsCodelab 프로젝트
