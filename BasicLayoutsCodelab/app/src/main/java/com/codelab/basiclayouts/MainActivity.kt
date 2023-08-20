@@ -255,7 +255,7 @@ private fun SootheBottomNavigation(modifier: Modifier = Modifier) {
             label = {
                 Text(stringResource(R.string.bottom_navigation_profile))
             },
-            selected = true,
+            selected = false,
             onClick = {}
         )
     }
